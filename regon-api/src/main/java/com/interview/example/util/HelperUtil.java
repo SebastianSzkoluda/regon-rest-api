@@ -1,6 +1,7 @@
 package com.interview.example.util;
 
 import com.interview.example.model.ComapnyInfo;
+import org.w3c.dom.NodeList;
 
 import javax.xml.soap.MessageFactory;
 import javax.xml.soap.SOAPConstants;
@@ -37,11 +38,17 @@ public class HelperUtil {
 
         for (Field field : clazz.getDeclaredFields()) {
             field.setAccessible(true);
-            field.set(newComapnyInfo, soapMessage
-                    .getSOAPBody()
-                    .getElementsByTagName(field.getName())
-                    .item(0)
-                    .getTextContent());
+            NodeList nodeList = soapMessage.getSOAPBody().getElementsByTagName(field.getName());
+            if (nodeList.getLength() > 0) {
+                String value = nodeList.item(0).getTextContent();
+                if (value.isEmpty()) {
+                    field.set(newComapnyInfo, "");
+                } else {
+                    field.set(newComapnyInfo, value);
+                }
+            } else {
+                field.set(newComapnyInfo, "");
+            }
         }
 
         return newComapnyInfo;

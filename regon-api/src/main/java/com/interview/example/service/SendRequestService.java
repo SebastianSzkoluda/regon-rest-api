@@ -62,6 +62,8 @@ public class SendRequestService {
 
         String raportEnvelope = clearSOAPResponse(Objects.requireNonNull(response.getBody()));
 
+        System.out.println(raportEnvelope);
+
         SOAPMessage soapMessage = parseToSOAPMessage(raportEnvelope);
 
         return parseSOAPMessageToCompanyInfoObject(soapMessage);
