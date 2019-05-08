@@ -20,13 +20,13 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.regon.lib</groupId>
-            <artifactId>regon-lib</artifactId>
-            <version>1.0.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/regon-lib.jar</systemPath>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.regon.lib</groupId>-->
+            <!--<artifactId>regon-lib</artifactId>-->
+            <!--<version>1.0.0</version>-->
+            <!--<scope>system</scope>-->
+            <!--<systemPath>${project.basedir}/lib/regon-lib.jar</systemPath>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -55,6 +55,34 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>1.12</version>
+                <executions>
+                    <execution>
+                        <id>wsimport-from-jdk</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- using wsdl from an url -->
+                    <wsdlUrls>
+                        <wsdlUrl>
+                            https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/wsdl/UslugaBIRzewnPubl.xsd
+                        </wsdlUrl>
+                    </wsdlUrls>
+                    <extension>true</extension>
+                    <keep>true</keep>
+                    <!-- Package name -->
+                    <packageName>com.interview.example.regon.wsdl</packageName>
+                    <!-- generated source files destination-->
+                    <sourceDestDir>target/generated-sources</sourceDestDir>
+                </configuration>
             </plugin>
         </plugins>
     </build>
