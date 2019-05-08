@@ -3,10 +3,10 @@ package com.interview.example.service;
 import com.interview.example.model.CompanyInfo;
 import com.interview.example.util.SoapHandlerResolver;
 import com.interview.example.util.SoapMessageHandler;
-import com.regon.lib.wsdl.IUslugaBIRzewnPubl;
-import com.regon.lib.wsdl.ObjectFactory;
-import com.regon.lib.wsdl.ParametryWyszukiwania;
-import com.regon.lib.wsdl.UslugaBIRzewnPubl;
+import com.regon.lib.IUslugaBIRzewnPubl;
+import com.regon.lib.ObjectFactory;
+import com.regon.lib.ParametryWyszukiwania;
+import com.regon.lib.UslugaBIRzewnPubl;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.xml.bind.JAXBElement;

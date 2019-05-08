@@ -21,7 +21,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.regon.lib.wsdl</groupId>
+            <groupId>com.regon.lib</groupId>
             <artifactId>regon-lib</artifactId>
             <version>1.0.0</version>
             <scope>system</scope>
