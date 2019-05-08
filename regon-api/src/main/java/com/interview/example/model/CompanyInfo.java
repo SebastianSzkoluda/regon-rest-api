@@ -4,77 +4,36 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CompanyInfo {
 
-    private String Regon;
-    private String RegonLink;
-    private String Nazwa;
-    private String Wojewodztwo;
-    private String Powiat;
-    private String Gmina;
-    private String Miejscowosc;
-    private String KodPocztowy;
-    private String Ulica;
-    private String Typ;
-    private String SilosID;
-
     @XmlElement(name = "Regon")
-    public void setRegon(String regon) {
-        Regon = regon;
-    }
-
+    private String regon;
     @XmlElement(name = "RegonLink")
-    public void setRegonLink(String regonLink) {
-        RegonLink = regonLink;
-    }
-
+    private String regonLink;
     @XmlElement(name = "Nazwa")
-    public void setNazwa(String nazwa) {
-        Nazwa = nazwa;
-    }
-
+    private String name;
     @XmlElement(name = "Wojewodztwo")
-    public void setWojewodztwo(String wojewodztwo) {
-        Wojewodztwo = wojewodztwo;
-    }
-
+    private String voivodeship;
     @XmlElement(name = "Powiat")
-    public void setPowiat(String powiat) {
-        Powiat = powiat;
-    }
-
+    private String district;
     @XmlElement(name = "Gmina")
-    public void setGmina(String gmina) {
-        Gmina = gmina;
-    }
-
+    private String community;
     @XmlElement(name = "Miejscowosc")
-    public void setMiejscowosc(String miejscowosc) {
-        Miejscowosc = miejscowosc;
-    }
-
+    private String city;
     @XmlElement(name = "KodPocztowy")
-    public void setKodPocztowy(String kodPocztowy) {
-        KodPocztowy = kodPocztowy;
-    }
-
+    private String zipCode;
     @XmlElement(name = "Ulica")
-    public void setUlica(String ulica) {
-        Ulica = ulica;
-    }
-
+    private String street;
     @XmlElement(name = "Typ")
-    public void setTyp(String typ) {
-        Typ = typ;
-    }
-
+    private String type;
     @XmlElement(name = "SilosID")
-    public void setSilosID(String silosID) {
-        SilosID = silosID;
-    }
+    private String silosId;
 }

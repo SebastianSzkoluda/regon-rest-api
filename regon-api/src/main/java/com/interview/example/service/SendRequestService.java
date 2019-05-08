@@ -3,10 +3,11 @@ package com.interview.example.service;
 import com.interview.example.model.CompanyInfo;
 import com.interview.example.util.SoapHandlerResolver;
 import com.interview.example.util.SoapMessageHandler;
-import com.interview.example.wsdl.IUslugaBIRzewnPubl;
-import com.interview.example.wsdl.ObjectFactory;
-import com.interview.example.wsdl.ParametryWyszukiwania;
-import com.interview.example.wsdl.UslugaBIRzewnPubl;
+import com.regon.lib.wsdl.IUslugaBIRzewnPubl;
+import com.regon.lib.wsdl.ObjectFactory;
+import com.regon.lib.wsdl.ParametryWyszukiwania;
+import com.regon.lib.wsdl.UslugaBIRzewnPubl;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -14,10 +15,10 @@ import javax.xml.ws.soap.AddressingFeature;
 
 import static com.interview.example.util.HelperUtil.parseResponseToCompanyInfoObject;
 
-
+@Slf4j
 public class SendRequestService {
 
-    public static CompanyInfo daneSzukaj(String nip) throws JAXBException {
+    public static CompanyInfo searchCompanyDataByNip(String nip) throws JAXBException {
         UslugaBIRzewnPubl service = new UslugaBIRzewnPubl();
         SoapMessageHandler soapMessageHandler = new SoapMessageHandler();
         service.setHandlerResolver(new SoapHandlerResolver(soapMessageHandler)); //<- doklejanie SID'a do HTTP HEADER
@@ -35,7 +36,7 @@ public class SendRequestService {
         ParametryWyszukiwania parametryWyszukiwania = new ParametryWyszukiwania();
         parametryWyszukiwania.setNip(nipParam);
         String raport = port.daneSzukaj(parametryWyszukiwania);
-        System.out.println(raport);
+        log.info(raport);
         return parseResponseToCompanyInfoObject(raport);
     }
 }

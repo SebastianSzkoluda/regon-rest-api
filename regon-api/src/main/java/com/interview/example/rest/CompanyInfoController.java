@@ -17,6 +17,6 @@ public class CompanyInfoController {
 
     @GetMapping
     public ResponseEntity<CompanyInfo> getCompanyInfo(@RequestParam String nip) throws JAXBException {
-        return new ResponseEntity<>(SendRequestService.daneSzukaj(nip), HttpStatus.OK);
+        return new ResponseEntity<>(SendRequestService.searchCompanyDataByNip(nip), HttpStatus.OK);
     }
 }

@@ -12,8 +12,6 @@ import java.util.Set;
 
 public class SoapMessageHandler implements SOAPHandler<SOAPMessageContext> {
 
-    private final String SID = "sid";
-
     private String sessionCookie;
 
     public void setSessionCookie(String sessionCookie) {
@@ -36,6 +34,7 @@ public class SoapMessageHandler implements SOAPHandler<SOAPMessageContext> {
                 headers = new HashMap<>();
                 context.put(MessageContext.HTTP_REQUEST_HEADERS, headers);
             }
+            String SID = "sid";
             List<String> cookies = headers.computeIfAbsent(SID, k -> new ArrayList<>());
             cookies.add(this.sessionCookie);
         }

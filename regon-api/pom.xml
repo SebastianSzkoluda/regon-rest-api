@@ -19,6 +19,15 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.regon.lib.wsdl</groupId>
+            <artifactId>regon-lib</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/regon-lib.jar</systemPath>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
